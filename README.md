@@ -1,5 +1,8 @@
 # RxJS WebSocket Server Subject
-RxJs WebSocket Server Wrapper for Node.js using WS
+RxJS WebSocket Server Wrapper for Node.js using WS
+
+RxJS `WebSocketSubject` does not currently support injecting an established WebSocket connection.
+This modified class accepts a WebSocket as returned by the WebSocket Server on connection event.
 
 ## Usage
 ```typescript
@@ -16,14 +19,13 @@ wsServer.on('connection', (webSocket: WebSocket, req: IncomingMessage) => {
       next: () => console.log('disconnected')
     }
   }
-  const availableResourceIds = new Set(['ch1', 'ch2', 'ch3', 'ch4'])
   const wsServerSubject = new WebSocketServerSubject<Message>(webSocket, wsServerSubjectConfig)
 
   /**
    * Top level Subscription
    */
   wsServerSubject.subscribe({
-    next: (msg) => console.log('Rx', msg),
+    next: (msg: Message) => console.log('Rx', msg),
     err: (err) => console.error(`Error ${err.code} ${err.reason}`),
     complete: () => 'Complete'
   })
@@ -32,9 +34,9 @@ wsServer.on('connection', (webSocket: WebSocket, req: IncomingMessage) => {
    * Filter incoming message and respond with an ok
    */
   wsServerSubject
-    .pipe(filter((msg) => msg.event === 'test'))
+    .pipe(filter((msg: Message) => msg.event === 'test'))
     .subscribe(() => {
-      const ok = { event: 'ok' }
+      const ok: Message = { event: 'ok' }
       wsServerSubject.next(ok)
       console.log('Tx', ok)
     })
