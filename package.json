@@ -7,19 +7,17 @@
   "types": "dist/WebSocketServerSubject.d.ts",
   "files": ["dist"],
   "repository": "https://github.com/six-edge/rxjs-websocket-server-subject.git",
-  "author": "Alexander Barker <alexander.barker@factset.com>",
+  "author": "Alexander Barker <alex@sixedge.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -cw"
+    "build": "tsc && yarn renameES && yarn renameMap && tsc --module CommonJS",
+    "renameES": "mv dist/WebSocketServerSubject.js dist/WebSocketServerSubject.es.js",
+    "renameMap": "mv dist/WebSocketServerSubject.js.map dist/WebSocketServerSubject.es.js.map"
   },
   "dependencies": {
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.1.0",
-    "rollup": "^2.38.0",
-    "tslib": "^2.1.0",
     "typescript": "^4.1.3"
   }
 }
