@@ -1,11 +1,13 @@
 {
   "name": "rxjs-websocket-server-subject",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "RxJs WebSocket Server Wrapper for Node.js using WS",
   "main": "dist/WebSocketServerSubject.js",
   "module": "dist/WebSocketServerSubject.es.js",
   "types": "dist/WebSocketServerSubject.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": "https://github.com/six-edge/rxjs-websocket-server-subject.git",
   "author": "Alexander Barker <alex@sixedge.com>",
   "license": "MIT",
