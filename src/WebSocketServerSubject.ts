@@ -1,6 +1,6 @@
 import { NextObserver, Subscription, Subscriber, Subject } from 'rxjs'
 import { WebSocketMessage } from 'rxjs/internal/observable/dom/WebSocketSubject'
-import { AnonymousSubject } from 'rxjs/internal-compatibility'
+import { AnonymousSubject } from 'rxjs/internal/Subject'
 
 interface WebSocketServerSubjectConfig<T> {
   /**
