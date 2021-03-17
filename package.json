@@ -1,6 +1,6 @@
 {
   "name": "rxjs-websocket-server-subject",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "RxJs WebSocket Server Wrapper for Node.js using WS",
   "main": "dist/WebSocketServerSubject.js",
   "module": "dist/WebSocketServerSubject.es.js",
